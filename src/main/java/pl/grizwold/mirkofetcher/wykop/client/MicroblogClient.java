@@ -38,6 +38,7 @@ public class MicroblogClient {
     private List<Entry> execute(Command cmd) {
         cmd.setClear(true);
         String json = session.execute(cmd);
+        System.out.println(json);
         return Lists.newArrayList(gson.fromJson(json, Entry[].class));
     }
 }

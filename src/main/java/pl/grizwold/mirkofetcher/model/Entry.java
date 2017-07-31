@@ -14,17 +14,29 @@ import java.util.List;
 @Data
 @Builder
 @Document(collection = "entries")
-public class Entry {
+public class Entry implements MicroblogContent {
     @Id
     private Long id;
 
     private String author;
 
     @SerializedName("author_group")
-    private int authorGroup;
+    private UserGroup authorGroup;
+
+    @SerializedName("author_avatar")
+    private String authorAvatar;
+
+    @SerializedName("author_avatar_big")
+    private String authorAvatarBig;
+
+    @SerializedName("author_avatar_med")
+    private String authorAvatarMed;
+
+    @SerializedName("author_avatar_lo")
+    private String authorAvatarLow;
 
     @SerializedName("author_sex")
-    private String authorSex;
+    private UserSex authorSex;
 
     private String app;
 
@@ -38,11 +50,16 @@ public class Entry {
     private String url;
 
     @SerializedName("vote_count")
-    private int votes;
+    private int voteCount;
+
+    @SerializedName("comment_count")
+    private int commentCount;
 
     private List<EntryComment> comments;
 
     private List<User> voters;
+
+    private EntryType type;
 
     @Override
     public boolean equals(Object o) {

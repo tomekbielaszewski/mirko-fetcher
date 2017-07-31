@@ -9,16 +9,28 @@ import java.util.List;
 
 @Data
 @Builder
-public class EntryComment {
+public class EntryComment implements MicroblogContent {
     private Long id;
 
     private String author;
 
     @SerializedName("author_group")
-    private int authorGroup;
+    private UserGroup authorGroup;
+
+    @SerializedName("author_avatar")
+    private String authorAvatar;
+
+    @SerializedName("author_avatar_big")
+    private String authorAvatarBig;
+
+    @SerializedName("author_avatar_med")
+    private String authorAvatarMed;
+
+    @SerializedName("author_avatar_lo")
+    private String authorAvatarLow;
 
     @SerializedName("author_sex")
-    private String authorSex;
+    private UserSex authorSex;
 
     private String app;
 
@@ -32,10 +44,12 @@ public class EntryComment {
     private String url;
 
     @SerializedName("vote_count")
-    private int votes;
+    private int voteCount;
 
     private List<User> voters;
 
     @SerializedName("entry_id")
     private int entryId;
+
+    private EntryType type;
 }
