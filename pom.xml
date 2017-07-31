@@ -9,7 +9,6 @@
 	<packaging>jar</packaging>
 
 	<name>mirko-fetcher</name>
-	<description></description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
