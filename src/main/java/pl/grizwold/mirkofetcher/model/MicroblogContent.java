@@ -20,4 +20,5 @@ public interface MicroblogContent {
     int getVoteCount();
     List<User> getVoters();
     EntryType getType();
+    boolean isDeleted();
 }

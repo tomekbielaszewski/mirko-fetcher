@@ -1,8 +1,7 @@
 package pl.grizwold.mirkofetcher.model;
 
-import lombok.Data;
 import lombok.Builder;
-import org.apache.commons.lang3.StringUtils;
+import lombok.Data;
 
 @Data
 @Builder
@@ -10,4 +9,6 @@ public class Embed {
     private boolean plus18;
     private EmbedType type;
     private String url;
+    private String preview;
+    private String source;
 }

@@ -52,4 +52,6 @@ public class EntryComment implements MicroblogContent {
     private int entryId;
 
     private EntryType type;
+
+    private boolean deleted;
 }

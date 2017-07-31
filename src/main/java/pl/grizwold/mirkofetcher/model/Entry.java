@@ -61,6 +61,8 @@ public class Entry implements MicroblogContent {
 
     private EntryType type;
 
+    private boolean deleted;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
