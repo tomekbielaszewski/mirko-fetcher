@@ -1,10 +1,9 @@
 package pl.grizwold.mirkofetcher.model;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
 import lombok.Builder;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,6 +12,7 @@ import java.util.List;
 
 @Data
 @Builder
+@EqualsAndHashCode(of = {"id"})
 @Document(collection = "entries")
 public class Entry implements MicroblogContent {
     @Id
@@ -62,26 +62,4 @@ public class Entry implements MicroblogContent {
     private EntryType type;
 
     private boolean deleted;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Entry entry = (Entry) o;
-
-        return new EqualsBuilder()
-                .appendSuper(super.equals(o))
-                .append(getId(), entry.getId())
-                .isEquals();
-    }
-
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(17, 37)
-                .appendSuper(super.hashCode())
-                .append(getId())
-                .toHashCode();
-    }
 }
