@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.grizwold.mirkofetcher.model.Entry;
+import pl.grizwold.microblog.model.Entry;
 
 import java.util.List;
 
@@ -38,7 +38,6 @@ public class MicroblogClient {
     private List<Entry> execute(Command cmd) {
         cmd.setClear(true);
         String json = session.execute(cmd);
-        System.out.println(json);
         return Lists.newArrayList(gson.fromJson(json, Entry[].class));
     }
 }

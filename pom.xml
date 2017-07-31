@@ -25,6 +25,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>pl.grizwold</groupId>
+			<artifactId>microblog-model</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>com.crozin</groupId>
 			<artifactId>com.crozin.wykop.sdk</artifactId>
 			<version>1.0.1</version>
@@ -70,6 +75,15 @@
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
 		</repository>
+
+		<repository>
+			<id>keeper-client-mvn-repository</id>
+			<url>https://raw.github.com/tomekbielaszewski/microblog-model/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
 	</repositories>
 
 	<build>
@@ -80,6 +94,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>

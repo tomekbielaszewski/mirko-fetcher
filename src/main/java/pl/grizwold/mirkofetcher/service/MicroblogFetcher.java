@@ -3,7 +3,7 @@ package pl.grizwold.mirkofetcher.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.grizwold.mirkofetcher.model.Entry;
+import pl.grizwold.microblog.model.Entry;
 import pl.grizwold.mirkofetcher.model.repo.EntryRepository;
 
 import java.util.Set;

@@ -1,14 +1,14 @@
 package pl.grizwold.mirkofetcher.service;
 
-import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.grizwold.mirkofetcher.model.Entry;
+import pl.grizwold.microblog.model.Entry;
 import pl.grizwold.mirkofetcher.wykop.client.MicroblogClient;
 
-import java.util.*;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -37,7 +37,7 @@ public class EntryProvider {
             log.info("Getting entries behind entry with id {}", idOfLastEntry);
             nextEntries = microblog.byFirstId(idOfLastEntry);
             entries.addAll(nextEntries);
-        } while(!hasOldEntries(nextEntries, untilTimestamp));
+        } while (!hasOldEntries(nextEntries, untilTimestamp));
 
         log.info("Found entry which is too old! Returning...");
         return entries;
