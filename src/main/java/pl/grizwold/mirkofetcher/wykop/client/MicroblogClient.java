@@ -5,9 +5,11 @@ import com.crozin.wykop.sdk.Session;
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.grizwold.microblog.model.Entry;
+import pl.grizwold.microblog.model.serializer.DateTimeSerializer;
 
 import java.util.List;
 
@@ -15,7 +17,7 @@ import java.util.List;
 public class MicroblogClient {
     private final Session session;
     private final Gson gson = new GsonBuilder()
-            .setDateFormat("yyyy-MM-dd HH:mm:ss")
+            .registerTypeAdapter(DateTime.class, new DateTimeSerializer())
             .create();
 
     @Autowired

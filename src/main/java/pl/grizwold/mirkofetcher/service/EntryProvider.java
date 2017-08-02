@@ -52,7 +52,7 @@ public class EntryProvider {
     }
 
     private boolean isOld(Entry entry, long untilTimestamp) {
-        return entry.getDateAdded().getTime() < untilTimestamp;
+        return entry.getDateAdded().getMillis() < untilTimestamp;
     }
 
     private Long getIdOfLastEntry(List<Entry> entries) {
