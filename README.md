@@ -1,4 +1,4 @@
-# Mirko Fetcher
+# Mirko Fetcher [![Build Status](https://travis-ci.org/tomekbielaszewski/mirko-fetcher.svg)](https://travis-ci.org/tomekbielaszewski/mirko-fetcher)
 
 Download tool for latest entries on polish micro blogging service: wykop.pl/mikroblog
 
