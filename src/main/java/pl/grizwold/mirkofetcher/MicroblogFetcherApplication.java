@@ -3,6 +3,9 @@ package pl.grizwold.mirkofetcher;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.convert.ConversionService;
+import org.springframework.core.convert.support.DefaultConversionService;
 import pl.grizwold.mirkofetcher.config.Configuration;
 import pl.grizwold.mirkofetcher.config.ConfigurationParser;
 import pl.grizwold.mirkofetcher.service.MicroblogFetcher;
@@ -16,5 +19,10 @@ public class MicroblogFetcherApplication {
         MicroblogFetcher fetcher = context.getBean(MicroblogFetcher.class);
 
         fetcher.run(configuration);
+    }
+
+    @Bean
+    public ConversionService conversionService() {
+        return new DefaultConversionService();
     }
 }

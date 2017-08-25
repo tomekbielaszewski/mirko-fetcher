@@ -29,17 +29,35 @@ public class MicroblogClient {
         return page(0);
     }
 
-    public List<Entry> page(int i) {
-        return execute(new Command("stream", "index", i));
+    public List<Entry> page(int page) {
+        Command command = new Command("stream", "index", page);
+        command.addParameter("page", page);
+        return queryForEntries(command);
     }
 
     public List<Entry> byFirstId(Long id) {
-        return execute(new Command("stream", "firstid", id));
+        return queryForEntries(new Command("stream", "firstid", id));
     }
 
-    private List<Entry> execute(Command cmd) {
+    public List<Entry> tagPage(String tag, int page) {
+        Command command = new Command("tag", "entries", tag);
+        command.addParameter("page", page);
+        return queryForTagIndex(command);
+    }
+
+    private List<Entry> queryForEntries(Command cmd) {
         cmd.setClear(true);
         String json = session.execute(cmd);
         return Lists.newArrayList(gson.fromJson(json, Entry[].class));
+    }
+
+    private List<Entry> queryForTagIndex(Command cmd) {
+        cmd.setClear(true);
+        String json = session.execute(cmd);
+        return gson.fromJson(json, TagIndex.class).items;
+    }
+
+    public class TagIndex {
+        List<Entry> items;
     }
 }
