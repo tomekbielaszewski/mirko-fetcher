@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class MicroblogFetcher {
     @Value("${blacklisted-by-default}")
-    List<String> blackListedTags;
+    private List<String> blackListedTags;
 
     @Autowired
     private MicroblogClient microblog;
